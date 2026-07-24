@@ -1,9 +1,3 @@
-/* ==========================================================================
-   Gastos Finales — Funnel Pay Per Call (Ecomfy Lead)
-   Flujo: quiz (index) -> opt-in (optin) -> llamada (llamada)
-   - Paso de parámetros de tracking + respuestas del quiz entre páginas
-   - Quiz de 2 pasos, validación de form, countdown, controles de video
-   ========================================================================== */
 (function () {
   'use strict';
 

@@ -12,12 +12,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/styles.css">
-
-  <!-- =====================================================================
-       TRACKING / PIXELES (Seguro de Vida) — rellenar con los de Ecomfy Lead.
-       OJO: este funnel es un BUYER distinto → usa su PROPIO tag de Ringba y
-       número en la página de llamada (life-insurance/llamada.html).
-       ===================================================================== -->
 </head>
 <body>
   <div class="topbar2">
@@ -35,11 +29,6 @@
       </p>
     </div>
 
-    <!-- Quiz de 3 pasos con descalificación.
-         Respuestas descalificantes (data-dq="1"): edad 55+, no trabaja, "Tengo algunas condiciones".
-         Califica    -> loader "Verificando" -> llamada.html   (data-loader + data-next)
-         No califica  -> no-califica.html                        (data-dq-next)
-         (Sin opt-in en este flujo por ahora.) -->
     <div class="panel" id="quiz" data-next="llamada.html" data-dq-next="no-califica.html" data-loader="1">
 
       <div class="quiz-step" data-step="1">

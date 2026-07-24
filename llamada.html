@@ -12,15 +12,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/styles.css">
-
-  <!-- =====================================================================
-       RINGBA — CALL TRACKING  (pega aqui el tag de Ecomfy Lead)
-       Ejemplo del formato:
-       <script src="//b-js.ringba.com/CAxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" async></script>
-       Con Ringba (numero dinamico), la clase .ringba-number reemplaza el
-       numero y el enlace tel: automaticamente. Mientras tanto se usa el
-       numero por defecto que dejes abajo.
-       ===================================================================== -->
 </head>
 <body>
   <div class="topbar"></div>
@@ -30,8 +21,6 @@
 
       <h1 class="title-blue">¡Felicidades, es elegible!</h1>
 
-      <!-- VSL: solo play/pausa (clic en el video). Sin barra de avance ni mute.
-           Autoplay silenciado; "Click for sound" activa el audio. -->
       <div class="video" id="vsl-wrap">
         <video id="vsl" class="vsl" playsinline muted autoplay preload="auto"
                disablepictureinpicture controlslist="nodownload noplaybackrate nofullscreen">
@@ -51,16 +40,15 @@
 
       <p class="pulse">Pulse abajo para llamar ahora:</p>
 
-      <!-- Botón ROJO "Llama ahora". Reemplaza el tel: y el número por el de
-           Ecomfy Lead. Con Ringba, .ringba-number se actualiza solo. -->
       <a class="btn-call ringba-number"
-         href="tel:+18330000000"
-         data-default="+1 (833) 000-0000"
+         href="tel:+18335550199"
+         data-default="(833) 555-0199"
          aria-label="Llamar ahora">Llama ahora</a>
 
       <p class="nota">
-        <span class="black">Nota: Debido al gran número de llamadas,</span>
-        <span class="red">su línea permanecerá disponible durante:</span>
+        <span class="black">Nota: Debido al gran número de llamadas, su línea</span>
+        <a class="phone ringba-number" href="tel:+18335550199">(833) 555-0199</a>
+        <span class="red">permanecerá disponible durante:</span>
         <span id="countdown" class="countdown" data-seconds="129">2:09</span>
       </p>
 

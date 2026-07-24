@@ -12,12 +12,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/styles.css">
-
-  <!-- =====================================================================
-       RINGBA — CALL TRACKING (Seguro de Vida) — pega aquí el tag de este buyer.
-       Es un buyer DISTINTO al de gastos finales → su propio tag/número.
-       Con Ringba, .ringba-number reemplaza el número y el tel: solo.
-       ===================================================================== -->
 </head>
 <body>
   <div class="topbar"></div>
@@ -27,8 +21,6 @@
 
       <h1 class="title-blue">¡Felicidades, es elegible!</h1>
 
-      <!-- VSL: solo play/pausa (clic). Sin barra de avance ni mute. Autoplay silenciado.
-           Por ahora reutiliza el video de gastos finales; cámbialo cuando tengas el de IUL. -->
       <div class="video" id="vsl-wrap">
         <video id="vsl" class="vsl" playsinline muted autoplay preload="auto"
                disablepictureinpicture controlslist="nodownload noplaybackrate nofullscreen">
@@ -48,15 +40,15 @@
 
       <p class="pulse">Pulse abajo para llamar ahora:</p>
 
-      <!-- Botón ROJO "Llama ahora". Reemplaza el tel: y el número por el de este buyer. -->
       <a class="btn-call ringba-number"
-         href="tel:+18330000000"
-         data-default="+1 (833) 000-0000"
+         href="tel:+18335550199"
+         data-default="(833) 555-0199"
          aria-label="Llamar ahora">Llama ahora</a>
 
       <p class="nota">
-        <span class="black">Nota: Debido al gran número de llamadas,</span>
-        <span class="red">su línea permanecerá disponible durante:</span>
+        <span class="black">Nota: Debido al gran número de llamadas, su línea</span>
+        <a class="phone ringba-number" href="tel:+18335550199">(833) 555-0199</a>
+        <span class="red">permanecerá disponible durante:</span>
         <span id="countdown" class="countdown" data-seconds="129">2:09</span>
       </p>
 
