@@ -34,6 +34,8 @@
     try { sessionStorage.setItem(STORE_KEY, currentParams); } catch (e) {}
   }
 
+  function dlPush(ev) { try { (window.dataLayer = window.dataLayer || []).push({ event: ev }); } catch (e) {} }
+
   /* --- Loader "Verificando" -> callback al 100% -------------------------
      Barra que avanza rápido hasta 90%, más lento a 95%, frena hasta 100%,
      y ejecuta onDone (navegar a la llamada). */
@@ -89,10 +91,12 @@
     var track = quiz.querySelector('.quiz-track');
     var countEl = quiz.querySelector('.quiz-count');
     var totalSteps = quiz.querySelectorAll('.quiz-step').length;
+    dlPush('pageview');
 
     function goToStep(n) {
       if (track) track.style.transform = 'translateX(' + (-(n - 1) * 100) + '%)';
       if (countEl) countEl.textContent = 'Pregunta ' + n + ' de ' + totalSteps;
+      dlPush('view_content');
     }
 
     quiz.addEventListener('click', function (e) {
@@ -235,4 +239,9 @@
       if (total > 0) { total -= 1; setTimeout(tick, 1000); }
     })();
   }
+
+  document.addEventListener('click', function (e) {
+    var t = e.target;
+    if (t && t.closest && t.closest('a[href^="tel:"]')) dlPush('contact');
+  });
 })();
