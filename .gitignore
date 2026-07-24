@@ -1,0 +1,10 @@
+# Sistema operativo / editor
+.DS_Store
+Thumbs.db
+*.log
+
+# Dependencias (por si acaso; este proyecto es HTML estático)
+node_modules/
+
+# Vercel
+.vercel/

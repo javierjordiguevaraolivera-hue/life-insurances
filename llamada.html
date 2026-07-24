@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>¡Felicidades, es elegible! — Llame ahora</title>
+  <meta name="description" content="Ha precalificado para una cobertura de gastos finales. Llame ahora para hablar con un especialista.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="¡Felicidades, es elegible! — Llame ahora">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css">
+
+  <!-- =====================================================================
+       RINGBA — CALL TRACKING  (pega aqui el tag de Ecomfy Lead)
+       Ejemplo del formato:
+       <script src="//b-js.ringba.com/CAxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" async></script>
+       Con Ringba (numero dinamico), la clase .ringba-number reemplaza el
+       numero y el enlace tel: automaticamente. Mientras tanto se usa el
+       numero por defecto que dejes abajo.
+       ===================================================================== -->
+</head>
+<body>
+  <div class="topbar"></div>
+
+  <main class="wrap">
+    <div class="panel">
+
+      <h1 class="title-blue">¡Felicidades, es elegible!</h1>
+
+      <!-- VSL: solo play/pausa (clic en el video). Sin barra de avance ni mute.
+           Autoplay silenciado; "Click for sound" activa el audio. -->
+      <div class="video" id="vsl-wrap">
+        <video id="vsl" class="vsl" playsinline muted autoplay preload="auto"
+               disablepictureinpicture controlslist="nodownload noplaybackrate nofullscreen">
+          <source src="assets/video.mp4" type="video/mp4">
+        </video>
+        <button type="button" class="video-play" id="video-play" aria-label="Reproducir / pausar"></button>
+        <button type="button" class="sound-toggle" id="sound-toggle" aria-label="Activar sonido">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M0 6.5v3c0 .69.56 1.25 1.25 1.25h1.78c.34 0 .66.14.9.38l1.93 1.98A1.25 1.25 0 0 0 8 12.22V3.78a1.25 1.25 0 0 0-2.14-.87L3.92 4.89c-.24.24-.56.38-.9.38H1.25C.56 5.27 0 5.82 0 6.5zM12 8a4.11 4.11 0 0 0-2.22-3.67v7.35A4.12 4.12 0 0 0 12 8zM9.78 0v1.88A6.22 6.22 0 0 1 14.22 8a6.22 6.22 0 0 1-4.44 6.12V16C13.34 15.17 16 11.91 16 8S13.34.83 9.78 0z"/></svg>
+          Click for sound
+        </button>
+      </div>
+
+      <p class="precalifica">
+        ¡Ha precalificado para una cobertura de hasta
+        <span class="hi">$ 25.000 para sus gastos finales y deudas impagas!</span>
+      </p>
+
+      <p class="pulse">Pulse abajo para llamar ahora:</p>
+
+      <!-- Botón ROJO "Llama ahora". Reemplaza el tel: y el número por el de
+           Ecomfy Lead. Con Ringba, .ringba-number se actualiza solo. -->
+      <a class="btn-call ringba-number"
+         href="tel:+18330000000"
+         data-default="+1 (833) 000-0000"
+         aria-label="Llamar ahora">Llama ahora</a>
+
+      <p class="nota">
+        <span class="black">Nota: Debido al gran número de llamadas,</span>
+        <span class="red">su línea permanecerá disponible durante:</span>
+        <span id="countdown" class="countdown" data-seconds="129">2:09</span>
+      </p>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <a href="privacy.html" target="_blank" rel="noopener">Privacy Policy</a> |
+    <a href="terms.html" target="_blank" rel="noopener">Terms &amp; Conditions</a>
+  </footer>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>

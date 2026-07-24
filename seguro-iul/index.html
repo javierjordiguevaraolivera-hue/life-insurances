@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>¿Califica para un Seguro IUL con Beneficios en Vida?</title>
+  <meta name="description" content="Responda 3 preguntas cortas para ver si califica para un Seguro IUL con beneficios en vida.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="¿Califica para un Seguro IUL con Beneficios en Vida?">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/styles.css">
+
+  <!-- =====================================================================
+       TRACKING / PIXELES (Seguro de Vida) — rellenar con los de Ecomfy Lead.
+       OJO: este funnel es un BUYER distinto → usa su PROPIO tag de Ringba y
+       número en la página de llamada (life-insurance/llamada.html).
+       ===================================================================== -->
+</head>
+<body>
+  <div class="topbar2">
+    <div class="bar-maroon"></div>
+    <div class="bar-navy"></div>
+  </div>
+
+  <main class="wrap wrap--quiz">
+    <div class="quiz-intro">
+      <h1 class="quiz-title">
+        Aplica Para Un <span class="hi">Seguro IUL</span> con Beneficios en Vida
+      </h1>
+      <p class="quiz-sub">
+        El programa podría cerrar pronto. Responda 3 preguntas cortas para ver si es elegible hoy.
+      </p>
+    </div>
+
+    <!-- Quiz de 3 pasos con descalificación.
+         Respuestas descalificantes (data-dq="1"): edad 55+, no trabaja, "Tengo algunas condiciones".
+         Califica    -> loader "Verificando" -> llamada.html   (data-loader + data-next)
+         No califica  -> no-califica.html                        (data-dq-next)
+         (Sin opt-in en este flujo por ahora.) -->
+    <div class="panel" id="quiz" data-next="llamada.html" data-dq-next="no-califica.html" data-loader="1">
+
+      <div class="quiz-step" data-step="1">
+        <p class="quiz-count">Pregunta 1 de 3</p>
+        <h2 class="quiz-q">Selecciona su rango de edad:</h2>
+        <div class="quiz-opts">
+          <button type="button" class="quiz-btn" data-q="edad" data-answer="25 a 34">25 a 34</button>
+          <button type="button" class="quiz-btn" data-q="edad" data-answer="35 a 44">35 a 44</button>
+          <button type="button" class="quiz-btn" data-q="edad" data-answer="45 a 54">45 a 54</button>
+          <button type="button" class="quiz-btn" data-q="edad" data-answer="55 a 65" data-dq="1">55 a 65</button>
+          <button type="button" class="quiz-btn" data-q="edad" data-answer="65+" data-dq="1">65+</button>
+        </div>
+      </div>
+
+      <div class="quiz-step hidden" data-step="2">
+        <p class="quiz-count">Pregunta 2 de 3</p>
+        <h2 class="quiz-q">¿Está trabajando actualmente?</h2>
+        <div class="quiz-opts">
+          <button type="button" class="quiz-btn" data-q="trabaja" data-answer="Sí">Sí, estoy trabajando</button>
+          <button type="button" class="quiz-btn" data-q="trabaja" data-answer="No" data-dq="1">No estoy trabajando</button>
+        </div>
+      </div>
+
+      <div class="quiz-step hidden" data-step="3">
+        <p class="quiz-count">Pregunta 3 de 3</p>
+        <h2 class="quiz-q">¿Cómo está su salud?</h2>
+        <div class="quiz-opts">
+          <button type="button" class="quiz-btn" data-q="salud" data-answer="Tengo algunas condiciones" data-dq="1">Tengo algunas condiciones</button>
+          <button type="button" class="quiz-btn" data-q="salud" data-answer="Estoy saludable">Estoy saludable</button>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <a href="../privacy.html" target="_blank" rel="noopener">Privacy Policy</a> |
+    <a href="../terms.html" target="_blank" rel="noopener">Terms &amp; Conditions</a>
+  </footer>
+
+  <script src="../assets/app.js"></script>
+</body>
+</html>

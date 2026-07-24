@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Seguro IUL — Ingrese su información</title>
+  <meta name="description" content="Ingresa tu información para ver tu opción de Seguro IUL.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Seguro IUL — Ingrese su información">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/styles.css">
+
+  <!-- TRACKING / PIXELES: pega Meta Pixel / GTM aqui antes de </head> si los usan. -->
+</head>
+<body>
+  <div class="topbar"></div>
+
+  <main class="wrap">
+    <div class="optin">
+      <p class="genial">¡Genial!</p>
+
+      <h1 class="optin-title">
+        Podrías ser elegible para un Seguro IUL con beneficios en vida.
+        Por favor, ingresa tu información a continuación:
+      </h1>
+
+      <form id="optin-form" class="form" data-next="llamada.html" novalidate>
+        <div class="field">
+          <input type="text" name="firstName" placeholder="Nombre" autocomplete="given-name" required>
+          <div class="error">Ingresa tu nombre.</div>
+        </div>
+        <div class="field">
+          <input type="email" name="email" placeholder="Correo Electrónico" autocomplete="email" required>
+          <div class="error">Ingresa un correo válido.</div>
+        </div>
+        <div class="field">
+          <input type="tel" name="phone" placeholder="Número de Teléfono" autocomplete="tel" inputmode="numeric" required>
+          <div class="error">Ingresa un teléfono de 10 dígitos.</div>
+        </div>
+        <button type="submit" class="btn-submit">Entregar</button>
+      </form>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <a href="../privacy.html" target="_blank" rel="noopener">Privacy Policy</a> |
+    <a href="../terms.html" target="_blank" rel="noopener">Terms &amp; Conditions</a>
+  </footer>
+
+  <script src="../assets/app.js"></script>
+</body>
+</html>

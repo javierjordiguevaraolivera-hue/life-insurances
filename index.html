@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>¿Califica para el Beneficio de $25,000 para Gastos Finales?</title>
+  <meta name="description" content="Responda 2 preguntas cortas para ver si califica para el beneficio de gastos finales.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="¿Califica para el Beneficio de $25,000 para Gastos Finales?">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css">
+
+  <!-- =====================================================================
+       TRACKING / PIXELES  (rellenar con los de Ecomfy Lead)
+       Meta Pixel / GTM: pega el script aqui antes de </head> si los usan.
+       (Ringba va en la pagina de llamada, llamada.html.)
+       ===================================================================== -->
+</head>
+<body>
+  <div class="topbar2">
+    <div class="bar-maroon"></div>
+    <div class="bar-navy"></div>
+  </div>
+
+  <main class="wrap wrap--quiz">
+    <div class="quiz-intro">
+      <h1 class="quiz-title">
+        Vea Si Califica Para El <span class="hi">Beneficio de $25,000</span> Para Gastos Finales
+      </h1>
+      <p class="quiz-sub">
+        El programa podría cerrar pronto. Responda algunas preguntas cortas para ver si es elegible ahora
+      </p>
+    </div>
+
+    <!-- Quiz de 2 pasos. Al responder la última, va a optin.html conservando
+         los parámetros de la URL + las respuestas (edad, beneficiario). -->
+    <div class="panel" id="quiz" data-next="optin.html">
+
+      <div class="quiz-step" data-step="1">
+        <p class="quiz-count">Pregunta 1 de 2</p>
+        <h2 class="quiz-q">Por favor seleccione su edad:</h2>
+        <div class="quiz-opts">
+          <button type="button" class="quiz-btn" data-q="edad" data-answer="65+">65+</button>
+          <button type="button" class="quiz-btn" data-q="edad" data-answer="45-64">45 - 64</button>
+          <button type="button" class="quiz-btn" data-q="edad" data-answer="18-44">18 - 44</button>
+        </div>
+      </div>
+
+      <div class="quiz-step hidden" data-step="2">
+        <p class="quiz-count">Pregunta 2 de 2</p>
+        <h2 class="quiz-q">¿Quién es su beneficiario?</h2>
+        <div class="quiz-opts">
+          <button type="button" class="quiz-btn" data-q="beneficiario" data-answer="Hijo/Hijos">Hijo / Hijos</button>
+          <button type="button" class="quiz-btn" data-q="beneficiario" data-answer="Cónyuge">Cónyuge</button>
+          <button type="button" class="quiz-btn" data-q="beneficiario" data-answer="Miembro familiar">Miembro familiar</button>
+          <button type="button" class="quiz-btn" data-q="beneficiario" data-answer="Otro">Otro</button>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <a href="privacy.html" target="_blank" rel="noopener">Privacy Policy</a> |
+    <a href="terms.html" target="_blank" rel="noopener">Terms &amp; Conditions</a>
+  </footer>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>
