@@ -30,28 +30,31 @@
     </div>
 
     <div class="panel" id="quiz" data-next="optin.html">
+      <p class="quiz-count">Pregunta 1 de 2</p>
+      <div class="quiz-viewport">
+        <div class="quiz-track">
 
-      <div class="quiz-step" data-step="1">
-        <p class="quiz-count">Pregunta 1 de 2</p>
-        <h2 class="quiz-q">Por favor seleccione su edad:</h2>
-        <div class="quiz-opts">
-          <button type="button" class="quiz-btn" data-q="edad" data-answer="65+">65+</button>
-          <button type="button" class="quiz-btn" data-q="edad" data-answer="45-64">45 - 64</button>
-          <button type="button" class="quiz-btn" data-q="edad" data-answer="18-44">18 - 44</button>
+          <div class="quiz-step" data-step="1">
+            <h2 class="quiz-q">Por favor seleccione su edad:</h2>
+            <div class="quiz-opts">
+              <button type="button" class="quiz-btn" data-q="edad" data-answer="65+">65+</button>
+              <button type="button" class="quiz-btn" data-q="edad" data-answer="45-64">45 - 64</button>
+              <button type="button" class="quiz-btn" data-q="edad" data-answer="18-44">18 - 44</button>
+            </div>
+          </div>
+
+          <div class="quiz-step" data-step="2">
+            <h2 class="quiz-q">¿Quién es su beneficiario?</h2>
+            <div class="quiz-opts">
+              <button type="button" class="quiz-btn" data-q="beneficiario" data-answer="Hijo/Hijos">Hijo / Hijos</button>
+              <button type="button" class="quiz-btn" data-q="beneficiario" data-answer="Cónyuge">Cónyuge</button>
+              <button type="button" class="quiz-btn" data-q="beneficiario" data-answer="Miembro familiar">Miembro familiar</button>
+              <button type="button" class="quiz-btn" data-q="beneficiario" data-answer="Otro">Otro</button>
+            </div>
+          </div>
+
         </div>
       </div>
-
-      <div class="quiz-step hidden" data-step="2">
-        <p class="quiz-count">Pregunta 2 de 2</p>
-        <h2 class="quiz-q">¿Quién es su beneficiario?</h2>
-        <div class="quiz-opts">
-          <button type="button" class="quiz-btn" data-q="beneficiario" data-answer="Hijo/Hijos">Hijo / Hijos</button>
-          <button type="button" class="quiz-btn" data-q="beneficiario" data-answer="Cónyuge">Cónyuge</button>
-          <button type="button" class="quiz-btn" data-q="beneficiario" data-answer="Miembro familiar">Miembro familiar</button>
-          <button type="button" class="quiz-btn" data-q="beneficiario" data-answer="Otro">Otro</button>
-        </div>
-      </div>
-
     </div>
   </main>
 

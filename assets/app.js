@@ -86,6 +86,14 @@
     var disqualified = false;
     var nextPage = quiz.getAttribute('data-next') || 'optin.html';
     var dqPage = quiz.getAttribute('data-dq-next') || '';
+    var track = quiz.querySelector('.quiz-track');
+    var countEl = quiz.querySelector('.quiz-count');
+    var totalSteps = quiz.querySelectorAll('.quiz-step').length;
+
+    function goToStep(n) {
+      if (track) track.style.transform = 'translateX(' + (-(n - 1) * 100) + '%)';
+      if (countEl) countEl.textContent = 'Pregunta ' + n + ' de ' + totalSteps;
+    }
 
     quiz.addEventListener('click', function (e) {
       var btn = e.target.closest('.quiz-btn');
@@ -97,16 +105,12 @@
 
       var step = btn.closest('.quiz-step');
       var idx = parseInt(step.getAttribute('data-step'), 10) || 1;
-      var next = quiz.querySelector('.quiz-step[data-step="' + (idx + 1) + '"]');
 
-      if (next) {
-        step.classList.add('hidden');
-        next.classList.remove('hidden');
-        try { window.scrollTo({ top: 0, behavior: 'smooth' }); } catch (e2) { window.scrollTo(0, 0); }
+      if (idx < totalSteps) {
+        goToStep(idx + 1);
         return;
       }
 
-      // Última pregunta: combinar params actuales + respuestas del quiz.
       var merged = currentParams ? currentParams.replace(/^\?/, '') : '';
       var extra = Object.keys(answers).map(function (k) {
         return encodeURIComponent(k) + '=' + encodeURIComponent(answers[k]);

@@ -87,6 +87,10 @@ p, h1, h2 { margin: 0 0 16px; }
 .quiz-btn:hover { background: var(--navy-hi); }
 .quiz-btn:active { transform: translateY(1px); }
 .quiz-step.hidden { display: none; }
+.quiz-viewport { overflow: hidden; }
+.quiz-track { display: flex; align-items: flex-start; transition: transform .35s ease; }
+.quiz-track > .quiz-step { flex: 0 0 100%; min-width: 100%; }
+@media (prefers-reduced-motion: reduce) { .quiz-track { transition: none; } }
 
 /* ---------- OPT-IN (sin borde punteado) ---------- */
 .optin { max-width: 460px; margin: 0 auto; text-align: center; }

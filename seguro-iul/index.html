@@ -32,37 +32,39 @@
     </div>
 
     <div class="panel" id="quiz" data-next="llamada.html" data-dq-next="no-califica.html" data-loader="1">
+      <p class="quiz-count">Pregunta 1 de 3</p>
+      <div class="quiz-viewport">
+        <div class="quiz-track">
 
-      <div class="quiz-step" data-step="1">
-        <p class="quiz-count">Pregunta 1 de 3</p>
-        <h2 class="quiz-q">Selecciona su rango de edad:</h2>
-        <div class="quiz-opts">
-          <button type="button" class="quiz-btn" data-q="edad" data-answer="25 a 34">25 a 34</button>
-          <button type="button" class="quiz-btn" data-q="edad" data-answer="35 a 44">35 a 44</button>
-          <button type="button" class="quiz-btn" data-q="edad" data-answer="45 a 54">45 a 54</button>
-          <button type="button" class="quiz-btn" data-q="edad" data-answer="55 a 65" data-dq="1">55 a 65</button>
-          <button type="button" class="quiz-btn" data-q="edad" data-answer="65+" data-dq="1">65+</button>
+          <div class="quiz-step" data-step="1">
+            <h2 class="quiz-q">Selecciona su rango de edad:</h2>
+            <div class="quiz-opts">
+              <button type="button" class="quiz-btn" data-q="edad" data-answer="25 a 34">25 a 34</button>
+              <button type="button" class="quiz-btn" data-q="edad" data-answer="35 a 44">35 a 44</button>
+              <button type="button" class="quiz-btn" data-q="edad" data-answer="45 a 54">45 a 54</button>
+              <button type="button" class="quiz-btn" data-q="edad" data-answer="55 a 65" data-dq="1">55 a 65</button>
+              <button type="button" class="quiz-btn" data-q="edad" data-answer="65+" data-dq="1">65+</button>
+            </div>
+          </div>
+
+          <div class="quiz-step" data-step="2">
+            <h2 class="quiz-q">¿Está trabajando actualmente?</h2>
+            <div class="quiz-opts">
+              <button type="button" class="quiz-btn" data-q="trabaja" data-answer="Sí">Sí, estoy trabajando</button>
+              <button type="button" class="quiz-btn" data-q="trabaja" data-answer="No" data-dq="1">No estoy trabajando</button>
+            </div>
+          </div>
+
+          <div class="quiz-step" data-step="3">
+            <h2 class="quiz-q">¿Cómo está su salud?</h2>
+            <div class="quiz-opts">
+              <button type="button" class="quiz-btn" data-q="salud" data-answer="Tengo algunas condiciones" data-dq="1">Tengo algunas condiciones</button>
+              <button type="button" class="quiz-btn" data-q="salud" data-answer="Estoy saludable">Estoy saludable</button>
+            </div>
+          </div>
+
         </div>
       </div>
-
-      <div class="quiz-step hidden" data-step="2">
-        <p class="quiz-count">Pregunta 2 de 3</p>
-        <h2 class="quiz-q">¿Está trabajando actualmente?</h2>
-        <div class="quiz-opts">
-          <button type="button" class="quiz-btn" data-q="trabaja" data-answer="Sí">Sí, estoy trabajando</button>
-          <button type="button" class="quiz-btn" data-q="trabaja" data-answer="No" data-dq="1">No estoy trabajando</button>
-        </div>
-      </div>
-
-      <div class="quiz-step hidden" data-step="3">
-        <p class="quiz-count">Pregunta 3 de 3</p>
-        <h2 class="quiz-q">¿Cómo está su salud?</h2>
-        <div class="quiz-opts">
-          <button type="button" class="quiz-btn" data-q="salud" data-answer="Tengo algunas condiciones" data-dq="1">Tengo algunas condiciones</button>
-          <button type="button" class="quiz-btn" data-q="salud" data-answer="Estoy saludable">Estoy saludable</button>
-        </div>
-      </div>
-
     </div>
   </main>
 
