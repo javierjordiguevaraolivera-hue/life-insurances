@@ -407,13 +407,12 @@
     </div>
   </div>
 
-  <div id="notification-container" style="position: fixed; bottom: 10px; left: 50%; transform: translateX(-50%); background: #fff; color: #000; padding: 8px 16px; border-radius: 6px; font-size: 13px; display: none; z-index: 1000; box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); border: 1px solid rgba(0, 0, 0, 0.1); width: 300px; display: flex; align-items: center; height: 80px; line-height: 1.4;">
-    <div id="state-image" style="width: 40px; height: 40px; background: #eee; border-radius: 4px; margin-right: 12px; overflow: hidden;">
-      <img id="state-img" src="" alt="State" style="width: 100%; height: 100%; object-fit: cover;">
+  <div id="notification-container" style="position: fixed; bottom: 10px; left: 50%; transform: translateX(-50%); background: #fff; color: #000; padding: 10px 16px; border-radius: 6px; font-size: 13px; display: none; z-index: 1000; box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); border: 1px solid rgba(0, 0, 0, 0.1); width: 300px; align-items: center; min-height: 60px; line-height: 1.4;">
+    <div id="state-image" style="width: 40px; height: 40px; flex: 0 0 40px; background: #eee; border-radius: 4px; margin-right: 12px; overflow: hidden;">
+      <img id="state-img" src="" alt="" style="width: 100%; height: 100%; object-fit: cover;">
     </div>
-    <div style="flex-grow: 1;">
-      <div id="name-text" style="font-size: 14px; font-weight: bold; margin-bottom: 2px;"></div>
-      <div id="state-text" style="font-size: 13px; font-weight: bold; margin-bottom: 2px;"></div>
+    <div style="flex-grow: 1; min-width: 0;">
+      <div id="name-text" style="font-size: 13px; font-weight: bold; margin-bottom: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"></div>
       <div id="quote-text" style="font-size: 12px; color: #444; line-height: 1.2;"></div>
     </div>
   </div>
@@ -682,45 +681,55 @@
   </script>
 
   <script>
-    const names = [
+    const fallbackNames = [
       "James Carter", "Sophia Martinez", "Liam Johnson", "Olivia Smith",
       "Ethan Davis", "Emma Brown", "Noah Garcia", "Ava White",
       "William Martinez", "Isabella Anderson", "Michael Moore", "Charlotte Taylor",
       "Benjamin Clark", "Amelia Walker", "Elijah Wright", "Mia Thompson",
       "Alexander Hill", "Harper Scott", "Daniel Adams", "Evelyn Lewis"
     ];
-
-    const notificationImg = "/seguro-iul/chatbot1/imagenes/notificacion.svg";
-    const states = [
-      { name: "California", img: notificationImg },
-      { name: "Texas", img: notificationImg },
-      { name: "New York", img: notificationImg },
-      { name: "Florida", img: notificationImg },
-      { name: "Illinois", img: notificationImg },
-      { name: "Pennsylvania", img: notificationImg },
-      { name: "Ohio", img: notificationImg },
-      { name: "Georgia", img: notificationImg },
-      { name: "North Carolina", img: notificationImg },
-      { name: "Michigan", img: notificationImg }
+    const fallbackStates = [
+      "California", "Texas", "New York", "Florida", "Illinois",
+      "Pennsylvania", "Ohio", "Georgia", "North Carolina", "Michigan"
     ];
+    const fallbackImg = "/seguro-iul/chatbot1/imagenes/notificacion.svg";
+
+    let people = [];
+    fetch('https://randomuser.me/api/?results=25&nat=us&inc=name,picture,location&noinfo')
+      .then(r => r.json())
+      .then(d => {
+        people = (d.results || []).map(u => ({
+          name: `${u.name.first} ${u.name.last}`,
+          state: (u.location && u.location.state) || fallbackStates[Math.floor(Math.random() * fallbackStates.length)],
+          img: u.picture.medium
+        }));
+      })
+      .catch(() => {});
 
     function getRandomQuote() {
-      return `$${Math.floor(Math.random() * (65 - 29 + 1) + 29)} per month`;
+      return `$${Math.floor(Math.random() * (65 - 29 + 1) + 29)} per week`;
     }
 
     function showNotification() {
-      const randomName = names[Math.floor(Math.random() * names.length)];
-      const randomState = states[Math.floor(Math.random() * states.length)];
+      let person;
+      if (people.length) {
+        person = people[Math.floor(Math.random() * people.length)];
+      } else {
+        person = {
+          name: fallbackNames[Math.floor(Math.random() * fallbackNames.length)],
+          state: fallbackStates[Math.floor(Math.random() * fallbackStates.length)],
+          img: fallbackImg
+        };
+      }
 
       const nameText = document.getElementById("name-text");
-      const stateText = document.getElementById("state-text");
       const quoteText = document.getElementById("quote-text");
       const stateImg = document.getElementById("state-img");
 
-      nameText.textContent = `${randomName}`;
-      stateText.textContent = `From ${randomState.name}`;
-      quoteText.textContent = `${randomName} just got approved for ${getRandomQuote()}!`;
-      stateImg.src = randomState.img;
+      nameText.textContent = `${person.name} From ${person.state}`;
+      quoteText.textContent = `${person.name} just got approved for ${getRandomQuote()}!`;
+      stateImg.onerror = function () { this.onerror = null; this.src = fallbackImg; };
+      stateImg.src = person.img;
 
       const notification = document.getElementById("notification-container");
       notification.style.display = "flex";
@@ -737,7 +746,7 @@
       }, 8000);
     }
 
-    startNotifications();
+    setTimeout(startNotifications, 2500);
   </script>
 
 </body>
