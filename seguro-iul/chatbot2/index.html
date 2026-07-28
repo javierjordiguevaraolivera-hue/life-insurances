@@ -1,0 +1,628 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <script>(function(){try{var k='gf_params',s=location.search;if(s&&s.length>1){sessionStorage.setItem(k,s);}else{var v=sessionStorage.getItem(k);if(v){history.replaceState(null,'',location.pathname+v+location.hash);}}}catch(e){}})();</script>
+  <script src="https://number-pools.dev/tag.js" pid="qahu4owh6"></script>
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-5XGCMFHV');</script>
+  <title>María — Chat</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#075E54">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; }
+    body {
+      background-color: #DADBD3;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .wa-app {
+      max-width: 480px;
+      margin: 0 auto;
+      height: 100vh;
+      height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      background-color: #E5DDD5;
+      box-shadow: 0 0 18px rgba(0,0,0,.18);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .wa-header {
+      background-color: #075E54;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      padding: 8px 10px;
+      gap: 10px;
+      flex: 0 0 auto;
+      z-index: 5;
+    }
+    .wa-back { display: flex; align-items: center; }
+    .wa-back svg { width: 22px; height: 22px; fill: #fff; }
+    .wa-avatar {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+      background: #cfd8d3;
+    }
+    .wa-title { flex: 1 1 auto; min-width: 0; line-height: 1.2; }
+    .wa-name { font-size: 16.5px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .wa-status { font-size: 12.5px; color: #d3e9e3; }
+    .wa-actions { display: flex; align-items: center; gap: 4px; }
+    .wa-actions a, .wa-actions span {
+      display: flex; align-items: center; justify-content: center;
+      width: 40px; height: 40px;
+    }
+    .wa-actions svg { width: 22px; height: 22px; fill: #fff; }
+
+    .wa-chat {
+      flex: 1 1 auto;
+      overflow-y: auto;
+      padding: 10px 8px 14px;
+      background-color: #E5DDD5;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Cg fill='%23d9d0c5' fill-opacity='.45'%3E%3Ccircle cx='18' cy='22' r='2.2'/%3E%3Ccircle cx='68' cy='10' r='1.6'/%3E%3Ccircle cx='118' cy='30' r='2'/%3E%3Ccircle cx='40' cy='64' r='1.8'/%3E%3Ccircle cx='96' cy='74' r='2.2'/%3E%3Ccircle cx='14' cy='104' r='1.7'/%3E%3Ccircle cx='64' cy='122' r='2'/%3E%3Ccircle cx='124' cy='116' r='1.6'/%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    .wa-chip {
+      display: block;
+      width: fit-content;
+      max-width: 88%;
+      margin: 6px auto 10px;
+      background-color: #FDF4C5;
+      color: #55606a;
+      font-size: 12px;
+      text-align: center;
+      padding: 6px 10px;
+      border-radius: 8px;
+      box-shadow: 0 1px .5px rgba(0,0,0,.12);
+      line-height: 1.35;
+    }
+    .wa-chip.fecha {
+      background-color: #E1F2FA;
+      color: #54656f;
+      font-size: 12px;
+      font-weight: 500;
+      text-transform: uppercase;
+      padding: 5px 12px;
+    }
+
+    .msg { display: flex; margin: 2px 0 6px; }
+    .msg.in { justify-content: flex-start; }
+    .msg.out { justify-content: flex-end; }
+
+    .bubble {
+      position: relative;
+      max-width: 78%;
+      padding: 7px 8px 8px 9px;
+      font-size: 14.5px;
+      line-height: 1.35;
+      color: #111b21;
+      border-radius: 8px;
+      box-shadow: 0 1px .5px rgba(0,0,0,.13);
+      word-wrap: break-word;
+    }
+    .msg.in .bubble { background-color: #ffffff; border-top-left-radius: 0; }
+    .msg.out .bubble { background-color: #DCF8C6; border-top-right-radius: 0; }
+
+    .msg.in .bubble::before, .msg.out .bubble::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      width: 0; height: 0;
+      border-style: solid;
+    }
+    .msg.in .bubble::before {
+      left: -8px;
+      border-width: 0 8px 10px 0;
+      border-color: transparent #ffffff transparent transparent;
+    }
+    .msg.out .bubble::before {
+      right: -8px;
+      border-width: 0 0 10px 8px;
+      border-color: transparent transparent transparent #DCF8C6;
+    }
+
+    .meta {
+      float: right;
+      margin: 6px 0 -4px 8px;
+      font-size: 11px;
+      color: #8696a0;
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      white-space: nowrap;
+    }
+    .meta svg { width: 15px; height: 11px; fill: #53BDEB; }
+
+    .wa-typing .bubble { padding: 11px 14px; }
+    .typing-dots { display: inline-flex; gap: 4px; align-items: center; }
+    .typing-dots i {
+      width: 7px; height: 7px;
+      background-color: #9aa6ad;
+      border-radius: 50%;
+      animation: t-blink 1.2s infinite ease-in-out;
+    }
+    .typing-dots i:nth-child(2) { animation-delay: .2s; }
+    .typing-dots i:nth-child(3) { animation-delay: .4s; }
+    @keyframes t-blink {
+      0%, 60%, 100% { transform: translateY(0); opacity: .5; }
+      30% { transform: translateY(-4px); opacity: 1; }
+    }
+
+    .wa-options { display: flex; flex-direction: column; gap: 6px; margin: 2px 0 8px; align-items: flex-start; }
+    .wa-option {
+      background-color: #ffffff;
+      color: #00A5F4;
+      border: none;
+      font-size: 14.5px;
+      font-weight: 500;
+      padding: 10px 18px;
+      border-radius: 18px;
+      min-width: 62%;
+      text-align: center;
+      cursor: pointer;
+      box-shadow: 0 1px .5px rgba(0,0,0,.13);
+      font-family: inherit;
+    }
+    .wa-option:active { background-color: #f0f6f9; }
+
+    .wa-call {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background-color: #25D366;
+      color: #fff;
+      text-decoration: none;
+      margin: 14px auto 10px;
+      width: 88%;
+      max-width: 340px;
+      padding: 13px 16px;
+      border-radius: 30px;
+      box-shadow: 0 3px 8px rgba(0,0,0,.18);
+      animation: heartbeat 1.5s ease-in-out infinite;
+    }
+    .wa-call svg { width: 22px; height: 22px; fill: #fff; flex: 0 0 auto; }
+    .wa-call .t { display: flex; flex-direction: column; align-items: flex-start; line-height: 1.2; }
+    .wa-call .num { font-size: 17px; font-weight: 700; }
+    .wa-call .sub { font-size: 11.5px; opacity: .95; }
+    @keyframes heartbeat {
+      0% { transform: scale(1); }
+      14% { transform: scale(1.06); }
+      28% { transform: scale(1); }
+      42% { transform: scale(1.06); }
+      70% { transform: scale(1); }
+    }
+
+    .wa-disclaimer {
+      margin: 26px 6px 8px;
+      font-size: 9px;
+      line-height: 1.4;
+      color: #8a8a86;
+      text-align: center;
+    }
+    .wa-disclaimer p + p { margin-top: 6px; }
+
+    .wa-inputbar {
+      flex: 0 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 8px 10px;
+      background-color: transparent;
+    }
+    .wa-fakeinput {
+      flex: 1 1 auto;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background-color: #ffffff;
+      border-radius: 24px;
+      padding: 10px 14px;
+      color: #8696a0;
+      font-size: 15px;
+      box-shadow: 0 1px .5px rgba(0,0,0,.13);
+    }
+    .wa-fakeinput svg { width: 22px; height: 22px; fill: #8696a0; flex: 0 0 auto; }
+    .wa-mic {
+      width: 44px; height: 44px;
+      flex: 0 0 auto;
+      background-color: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 1px 2px rgba(0,0,0,.2);
+    }
+    .wa-mic svg { width: 21px; height: 21px; fill: #fff; }
+
+    #notification-container { font-family: inherit; }
+  </style>
+</head>
+<body>
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5XGCMFHV" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <a id="pool-num" href="tel:+17862042371" style="position:absolute;left:-9999px;top:0;" tabindex="-1" aria-hidden="true">(786) 204-2371</a>
+
+  <div class="wa-app">
+
+    <header class="wa-header">
+      <span class="wa-back">
+        <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+      </span>
+      <img class="wa-avatar" src="/seguro-iul/chatbot2/imagenes/agente.png" alt="">
+      <div class="wa-title">
+        <div class="wa-name">María</div>
+        <div class="wa-status" id="waStatus">en línea</div>
+      </div>
+      <div class="wa-actions">
+        <a id="header-call" href="tel:+17862042371" aria-label="Llamar ahora">
+          <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.24.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2z"/></svg>
+        </a>
+        <span>
+          <svg viewBox="0 0 24 24"><path d="M12 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm0 2a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm0 6a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/></svg>
+        </span>
+      </div>
+    </header>
+
+    <div class="wa-chat" id="chatMessages">
+      <span class="wa-chip fecha">Hoy</span>
+      <span class="wa-chip">🔒 Los mensajes y las llamadas están cifrados de extremo a extremo. Nadie fuera de este chat puede leerlos ni escucharlos.</span>
+    </div>
+
+    <footer class="wa-inputbar" aria-hidden="true">
+      <div class="wa-fakeinput">
+        <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm-3.5-8.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm7 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm-8 3.1a.75.75 0 0 1 1.05-.17 5.7 5.7 0 0 0 6.9 0 .75.75 0 1 1 .88 1.21 7.2 7.2 0 0 1-8.66 0 .75.75 0 0 1-.17-1.04z"/></svg>
+        <span>Mensaje</span>
+      </div>
+      <div class="wa-mic">
+        <svg viewBox="0 0 24 24"><path d="M12 14a3 3 0 0 0 3-3V5a3 3 0 1 0-6 0v6a3 3 0 0 0 3 3zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.92V21h2v-3.08A7 7 0 0 0 19 11h-2z"/></svg>
+      </div>
+    </footer>
+
+  </div>
+
+  <div id="notification-container" style="position: fixed; bottom: 76px; left: 50%; transform: translateX(-50%); background: #fff; color: #000; padding: 10px 16px; border-radius: 6px; font-size: 13px; display: none; z-index: 1000; box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); border: 1px solid rgba(0, 0, 0, 0.1); width: 300px; align-items: center; min-height: 60px; line-height: 1.4;">
+    <div id="state-image" style="width: 40px; height: 40px; flex: 0 0 40px; background: #eee; border-radius: 4px; margin-right: 12px; overflow: hidden;">
+      <img id="state-img" src="" alt="" style="width: 100%; height: 100%; object-fit: cover;">
+    </div>
+    <div style="flex-grow: 1; min-width: 0;">
+      <div id="name-text" style="font-size: 13px; font-weight: bold; margin-bottom: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"></div>
+      <div id="quote-text" style="font-size: 12px; color: #444; line-height: 1.2;"></div>
+    </div>
+  </div>
+
+  <script>
+    let pendingDisqualification = null;
+    let currentStep = 0;
+    const chatMessages = document.getElementById('chatMessages');
+    const waStatus = document.getElementById('waStatus');
+
+    const disqualifyURL = '/seguro-iul/no-califica.html';
+    const disqualify_confirm_message = false;
+    const conversation = [
+      {
+        "text": "Hola 👋",
+        "delay": 1000
+      },
+      {
+        "text": "Soy María del Programa de Ahorro con Seguros IUL con Beneficios en Vida.",
+        "delay": 1000
+      },
+      {
+        "text": "Miles de familias están aplicando a un Seguro IUL 💵 que protege a los tuyos 👨‍👩‍👧 y acumula un ahorro en vida 📈 que puedes usar para tu retiro, tu salud o cualquier emergencia.",
+        "delay": 1000
+      },
+      {
+        "text": "Déjame hacerte unas preguntas rápidas para ver si calificas 😊",
+        "delay": 1000
+      },
+      {
+        "text": "Selecciona tu rango de edad:",
+        "delay": 1000,
+        "options": [
+          "18 a 39",
+          "40 a 54",
+          "55 a 65+"
+        ],
+        "disqualifyAnswers": [
+          "55 a 65+"
+        ]
+      },
+      {
+        "text": "¡Muy bien! 😄",
+        "delay": 1000
+      },
+      {
+        "text": "🏠 ¿Eres dueño de casa?",
+        "delay": 1000,
+        "options": [
+          "Sí",
+          "No"
+        ]
+      },
+      {
+        "text": "Perfecto! 😊 Una última pregunta.",
+        "delay": 1000
+      },
+      {
+        "text": "¿Cómo está tu salud? 💪",
+        "delay": 1000,
+        "options": [
+          "Estoy saludable",
+          "Tengo algunas condiciones"
+        ]
+      },
+      {
+        "text": "🎉 ¡Felicidades! Estás Precalificado para un Seguro IUL con Beneficios en Vida. 🙌",
+        "delay": 1000
+      },
+      {
+        "text": "Hemos reservado un especialista para ayudarte a asegurar tu cobertura y comenzar tu plan de ahorro hoy mismo. 😃",
+        "delay": 1000
+      },
+      {
+        "text": "Haz clic en el botón para llamar 📞 antes de que expire tu precalificación.",
+        "delay": 1000
+      },
+      {
+        "text": "Precalificación reservada por: 1 minuto ⏱️ ¡Llámanos ahora!",
+        "delay": 1000,
+        "callButton": true,
+        "buttonText": "(786) 204-2371",
+        "buttonLink": "tel:+17862042371"
+      }
+    ];
+
+    function dlPush(ev) { try { (window.dataLayer = window.dataLayer || []).push({ event: ev }); } catch (e) {} }
+    dlPush('pageview');
+    document.addEventListener('click', function (e) {
+      if (e.target && e.target.closest && e.target.closest('a[href^="tel:"]')) dlPush('contact');
+    });
+
+    const headerCall = document.getElementById('header-call');
+    if (headerCall) {
+      headerCall.addEventListener('click', function () {
+        const pool = document.getElementById('pool-num');
+        if (pool && pool.getAttribute('href')) this.href = pool.getAttribute('href');
+      });
+    }
+
+    function nowTime() {
+      try {
+        return new Date().toLocaleTimeString('es-US', { hour: 'numeric', minute: '2-digit' }).toLowerCase();
+      } catch (e) {
+        var d = new Date();
+        return d.getHours() + ':' + ('0' + d.getMinutes()).slice(-2);
+      }
+    }
+
+    function scrollChat() {
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    function addTypingIndicator() {
+      waStatus.textContent = 'escribiendo...';
+      const wrap = document.createElement('div');
+      wrap.classList.add('msg', 'in', 'wa-typing');
+      wrap.innerHTML = '<div class="bubble"><span class="typing-dots"><i></i><i></i><i></i></span></div>';
+      chatMessages.appendChild(wrap);
+      scrollChat();
+      return wrap;
+    }
+
+    function removeTypingIndicator(indicator) {
+      waStatus.textContent = 'en línea';
+      if (indicator && indicator.parentElement) {
+        indicator.remove();
+      }
+    }
+
+    function addMessage(text, isUser = false) {
+      const wrap = document.createElement('div');
+      wrap.classList.add('msg', isUser ? 'out' : 'in');
+
+      const bubble = document.createElement('div');
+      bubble.classList.add('bubble');
+      bubble.innerHTML = text;
+
+      const meta = document.createElement('span');
+      meta.classList.add('meta');
+      meta.innerHTML = isUser
+        ? nowTime() + ' <svg viewBox="0 0 18 12"><path d="M6.4 10.9 2.1 6.6l1.2-1.2 3.1 3.1L13 1.9l1.2 1.2-7.8 7.8z"/><path d="M10.9 10.9 9.8 9.8l1.2-1.2 1.1 1.1 6-6 1.2 1.2-7.4 6z" transform="translate(-2.4 0)"/></svg>'
+        : nowTime();
+      bubble.appendChild(meta);
+
+      wrap.appendChild(bubble);
+      chatMessages.appendChild(wrap);
+      scrollChat();
+    }
+
+    function addOptions(options) {
+      const wrap = document.createElement('div');
+      wrap.classList.add('wa-options');
+      options.forEach(option => {
+        const button = document.createElement('button');
+        button.classList.add('wa-option');
+        button.textContent = option;
+        button.onclick = () => handleUserInput(option);
+        wrap.appendChild(button);
+      });
+      chatMessages.appendChild(wrap);
+      scrollChat();
+    }
+
+    function addCallButton() {
+      const link = document.createElement('a');
+      link.classList.add('wa-call');
+
+      const poolEl = document.getElementById('pool-num');
+      const poolText = poolEl && poolEl.textContent.trim() ? poolEl.textContent.trim() : null;
+      const poolHref = poolEl && poolEl.getAttribute('href') ? poolEl.getAttribute('href') : null;
+
+      link.innerHTML = '<svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.24.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2z"/></svg>';
+
+      const t = document.createElement('span');
+      t.classList.add('t');
+      const num = document.createElement('span');
+      num.classList.add('num');
+      num.textContent = poolText || conversation[currentStep].buttonText;
+      const sub = document.createElement('span');
+      sub.classList.add('sub');
+      sub.textContent = '🔒100% Seguro. Llamada 100% Gratis';
+      t.appendChild(num);
+      t.appendChild(sub);
+      link.appendChild(t);
+
+      link.href = poolHref || conversation[currentStep].buttonLink;
+
+      if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+        link.href = link.href.replace('tel:', 'tel://');
+      }
+
+      chatMessages.appendChild(link);
+      scrollChat();
+    }
+
+    function handleDisqualificationConfirmation(confirmResponse) {
+      if (confirmResponse === "Yes") {
+        window.location.href = disqualifyURL;
+      } else {
+        currentStep++;
+        processConversation();
+      }
+      pendingDisqualification = null;
+    }
+
+    function handleUserInput(input) {
+      addMessage(input, true);
+      dlPush('view_content');
+      const opts = chatMessages.querySelector('.wa-options');
+      if (opts) {
+        opts.remove();
+      }
+
+      if (pendingDisqualification) {
+        handleDisqualificationConfirmation(input);
+        return;
+      }
+
+      const currentConversation = conversation[currentStep];
+      if (currentConversation.disqualifyAnswers &&
+          currentConversation.disqualifyAnswers.includes(input)) {
+
+        if (disqualify_confirm_message) {
+          pendingDisqualification = input;
+          const typingIndicator = addTypingIndicator();
+          setTimeout(() => {
+            removeTypingIndicator(typingIndicator);
+            addMessage("Are you sure you selected the right answer?");
+            addOptions(["Yes", "No"]);
+          }, 500);
+        } else {
+          window.location.href = disqualifyURL;
+        }
+        return;
+      }
+
+      currentStep++;
+      processConversation();
+    }
+
+    function processConversation() {
+      if (currentStep < conversation.length) {
+        const step = conversation[currentStep];
+        const typingIndicator = addTypingIndicator();
+
+        setTimeout(() => {
+          removeTypingIndicator(typingIndicator);
+          addMessage(step.text);
+          if (step.options) {
+            addOptions(step.options);
+          } else if (step.callButton) {
+            addCallButton();
+          } else {
+            currentStep++;
+            processConversation();
+          }
+        }, step.delay);
+      }
+    }
+
+    processConversation();
+  </script>
+
+  <script>
+    const fallbackNames = [
+      "James Carter", "Sophia Martinez", "Liam Johnson", "Olivia Smith",
+      "Ethan Davis", "Emma Brown", "Noah Garcia", "Ava White",
+      "William Martinez", "Isabella Anderson", "Michael Moore", "Charlotte Taylor",
+      "Benjamin Clark", "Amelia Walker", "Elijah Wright", "Mia Thompson",
+      "Alexander Hill", "Harper Scott", "Daniel Adams", "Evelyn Lewis"
+    ];
+    const fallbackStates = [
+      "California", "Texas", "New York", "Florida", "Illinois",
+      "Pennsylvania", "Ohio", "Georgia", "North Carolina", "Michigan"
+    ];
+    const fallbackImg = "/seguro-iul/chatbot1/imagenes/notificacion.svg";
+
+    let people = [];
+    fetch('https://randomuser.me/api/?results=25&nat=us&inc=name,picture,location&noinfo')
+      .then(r => r.json())
+      .then(d => {
+        people = (d.results || []).map(u => ({
+          name: `${u.name.first} ${u.name.last}`,
+          state: (u.location && u.location.state) || fallbackStates[Math.floor(Math.random() * fallbackStates.length)],
+          img: u.picture.medium
+        }));
+      })
+      .catch(() => {});
+
+    function getRandomQuote() {
+      return `$${Math.floor(Math.random() * (65 - 50 + 1) + 50)} per week`;
+    }
+
+    function showNotification() {
+      let person;
+      if (people.length) {
+        person = people[Math.floor(Math.random() * people.length)];
+      } else {
+        person = {
+          name: fallbackNames[Math.floor(Math.random() * fallbackNames.length)],
+          state: fallbackStates[Math.floor(Math.random() * fallbackStates.length)],
+          img: fallbackImg
+        };
+      }
+
+      const nameText = document.getElementById("name-text");
+      const quoteText = document.getElementById("quote-text");
+      const stateImg = document.getElementById("state-img");
+
+      nameText.textContent = `${person.name} From ${person.state}`;
+      quoteText.textContent = `${person.name} just got approved for ${getRandomQuote()}!`;
+      stateImg.onerror = function () { this.onerror = null; this.src = fallbackImg; };
+      stateImg.src = person.img;
+
+      const notification = document.getElementById("notification-container");
+      notification.style.display = "flex";
+
+      setTimeout(() => {
+        notification.style.display = "none";
+      }, 4000);
+    }
+
+    function startNotifications() {
+      showNotification();
+      setInterval(() => {
+        showNotification();
+      }, 8000);
+    }
+
+    setTimeout(startNotifications, 2500);
+  </script>
+
+</body>
+</html>
