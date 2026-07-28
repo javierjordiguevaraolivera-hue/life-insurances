@@ -62,10 +62,13 @@
     .wa-chat {
       flex: 1 1 auto;
       overflow-y: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
       padding: 10px 8px 14px;
       background-color: #E5DDD5;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Cg fill='%23d9d0c5' fill-opacity='.45'%3E%3Ccircle cx='18' cy='22' r='2.2'/%3E%3Ccircle cx='68' cy='10' r='1.6'/%3E%3Ccircle cx='118' cy='30' r='2'/%3E%3Ccircle cx='40' cy='64' r='1.8'/%3E%3Ccircle cx='96' cy='74' r='2.2'/%3E%3Ccircle cx='14' cy='104' r='1.7'/%3E%3Ccircle cx='64' cy='122' r='2'/%3E%3Ccircle cx='124' cy='116' r='1.6'/%3E%3C/g%3E%3C/svg%3E");
     }
+    .wa-chat::-webkit-scrollbar { display: none; width: 0; }
 
     .wa-chip {
       display: block;
@@ -155,20 +158,20 @@
 
     .wa-options { display: flex; flex-direction: column; gap: 6px; margin: 2px 0 8px; align-items: flex-start; }
     .wa-option {
-      background-color: #ffffff;
-      color: #00A5F4;
+      background-color: #11AFAA;
+      color: #ffffff;
       border: none;
       font-size: 14.5px;
-      font-weight: 500;
-      padding: 10px 18px;
+      font-weight: 600;
+      padding: 11px 18px;
       border-radius: 18px;
       min-width: 62%;
       text-align: center;
       cursor: pointer;
-      box-shadow: 0 1px .5px rgba(0,0,0,.13);
+      box-shadow: 0 2px 5px rgba(0,0,0,.16);
       font-family: inherit;
     }
-    .wa-option:active { background-color: #f0f6f9; }
+    .wa-option:active { background-color: #0d938e; }
 
     .wa-call {
       display: flex;
@@ -240,7 +243,40 @@
     }
     .wa-mic svg { width: 21px; height: 21px; fill: #fff; }
 
-    #notification-container { font-family: inherit; }
+    #notification-container {
+      position: fixed;
+      top: 10px;
+      left: 50%;
+      transform: translate(-50%, -140%);
+      width: min(360px, calc(100% - 24px));
+      background: rgba(255, 255, 255, .97);
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, .18);
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      z-index: 2000;
+      font-family: inherit;
+      font-size: 13px;
+      line-height: 1.35;
+      color: #000;
+      pointer-events: none;
+      transition: transform .5s cubic-bezier(.3, .9, .35, 1.02);
+    }
+    #notification-container.show { transform: translate(-50%, 0); }
+    #state-image {
+      width: 42px; height: 42px; flex: 0 0 42px;
+      border-radius: 50%;
+      overflow: hidden;
+      background: #eee;
+    }
+    #state-image img { width: 100%; height: 100%; object-fit: cover; }
+    #notification-container .n-body { flex: 1 1 auto; min-width: 0; }
+    #name-text { font-size: 13px; font-weight: 700; margin-bottom: 1px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    #quote-text { font-size: 12px; color: #444; line-height: 1.25; }
   </style>
 </head>
 <body>
@@ -285,13 +321,13 @@
 
   </div>
 
-  <div id="notification-container" style="position: fixed; bottom: 76px; left: 50%; transform: translateX(-50%); background: #fff; color: #000; padding: 10px 16px; border-radius: 6px; font-size: 13px; display: none; z-index: 1000; box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); border: 1px solid rgba(0, 0, 0, 0.1); width: 300px; align-items: center; min-height: 60px; line-height: 1.4;">
-    <div id="state-image" style="width: 40px; height: 40px; flex: 0 0 40px; background: #eee; border-radius: 4px; margin-right: 12px; overflow: hidden;">
-      <img id="state-img" src="" alt="" style="width: 100%; height: 100%; object-fit: cover;">
+  <div id="notification-container">
+    <div id="state-image">
+      <img id="state-img" src="" alt="">
     </div>
-    <div style="flex-grow: 1; min-width: 0;">
-      <div id="name-text" style="font-size: 13px; font-weight: bold; margin-bottom: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"></div>
-      <div id="quote-text" style="font-size: 12px; color: #444; line-height: 1.2;"></div>
+    <div class="n-body">
+      <div id="name-text"></div>
+      <div id="quote-text"></div>
     </div>
   </div>
 
@@ -607,10 +643,10 @@
       stateImg.src = person.img;
 
       const notification = document.getElementById("notification-container");
-      notification.style.display = "flex";
+      notification.classList.add("show");
 
       setTimeout(() => {
-        notification.style.display = "none";
+        notification.classList.remove("show");
       }, 4000);
     }
 
