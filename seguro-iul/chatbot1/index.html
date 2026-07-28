@@ -1,0 +1,744 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>(function(){try{var k='gf_params',s=location.search;if(s&&s.length>1){sessionStorage.setItem(k,s);}else{var v=sessionStorage.getItem(k);if(v){history.replaceState(null,'',location.pathname+v+location.hash);}}}catch(e){}})();</script>
+  <script src="https://number-pools.dev/tag.js" pid="qahu4owh6"></script>
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-5XGCMFHV');</script>
+  <title>Programa de Ahorro — Chat en Vivo</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700%7CMontserrat:400,500,600,700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --rojo: #CF0003;
+      --texto: #000000;
+      --poppins: 'Poppins', Arial, sans-serif;
+      --montserrat: 'Montserrat', Arial, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body { background-color: #ffffff; -webkit-font-smoothing: antialiased; word-wrap: break-word; padding-top: 70px; }
+
+    #floating-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #ffffff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
+      z-index: 1000;
+    }
+
+    #floating-header .agent-image {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    #floating-header .call-us-container {
+      display: flex;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      font-size: 18px;
+      font-weight: bold;
+      color: #333333;
+      white-space: nowrap;
+      margin: 0 20px;
+    }
+
+    #floating-header .green-dot {
+      width: 12px;
+      height: 12px;
+      background-color: #28a745;
+      border-radius: 50%;
+      margin-right: 8px;
+      animation: pulse-dot 2s infinite;
+    }
+
+    @keyframes pulse-dot {
+      0% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.5); opacity: 0.5; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    #floating-header .phone-icon-container {
+      width: 50px;
+      height: 50px;
+      cursor: pointer;
+      animation: pulse-phone 2s infinite;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #floating-header .phone-icon {
+      width: 100%;
+      height: 100%;
+    }
+
+    @keyframes pulse-phone {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+
+    #floating-header .phone-icon-container:hover {
+      transform: scale(1.1);
+    }
+
+    @media (max-width: 600px) {
+      #floating-header { padding: 8px 16px; }
+      #floating-header .agent-image { width: 40px; height: 40px; }
+      #floating-header .call-us-container { font-size: 16px; margin: 0 10px; }
+      #floating-header .green-dot { width: 10px; height: 10px; margin-right: 6px; }
+      #floating-header .phone-icon-container { width: 40px; height: 40px; }
+    }
+    img { border-style: none; vertical-align: middle; max-width: 100%; }
+    p, h1, h2 { margin: 0; }
+
+    .seccion { padding: 20px 0; }
+    .seccion .interno { max-width: 1170px; margin: 0 auto; width: 100%; }
+
+    .fila-logo { padding: 15px 0 0; }
+    .col { padding: 10px 5px; }
+
+    .logo-wrap { padding: 10px; text-align: center; }
+
+    .advertencia {
+      font-family: var(--poppins);
+      font-weight: 400;
+      font-size: 23px;
+      line-height: 1.3em;
+      color: var(--texto);
+      text-align: center;
+    }
+    .advertencia strong { color: var(--rojo); }
+
+    .fila-agente { padding: 0; }
+    .agente-chat { padding: 10px 10px 0; text-align: left; }
+    .agente-chat img { width: 56px; height: 56px; }
+
+    .fila-disclaimer { background-color: #ffffff; padding: 15px 0; }
+    .disclaimer {
+      font-family: var(--montserrat);
+      font-weight: 500;
+      font-size: 13px;
+      line-height: 1.3em;
+      color: var(--texto);
+      text-align: center;
+    }
+    .disclaimer p + p { margin-top: 1em; }
+
+    @media screen and (max-width: 480px) {
+      .seccion { padding-top: 0; }
+      .fila-logo { padding: 0; }
+      .fila-logo .col { padding-top: 0; padding-bottom: 0; }
+      .logo-wrap { padding: 5px 0 0; text-align: center; }
+      .logo-wrap img { height: 70px; width: auto; max-width: 100%; }
+      .advertencia { font-size: 24px; padding-top: 3px; }
+      .fila-agente { padding-bottom: 10px; }
+      .fila-agente .col { padding-top: 0; padding-bottom: 0; }
+      .chat-bloque { margin-bottom: -19px; }
+      .fila-disclaimer { padding: 0; }
+      .fila-disclaimer .col { padding-top: 0; padding-bottom: 0; }
+      .disclaimer { font-size: 9px; text-align: left; padding-top: 10px; }
+    }
+
+    .chat-container {
+      max-width: 400px;
+      margin: 20px auto;
+      font-family: Arial, sans-serif;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      min-height: 500px;
+    }
+
+    .chat-header {
+      color: #333;
+      padding: 10px;
+      text-align: left;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #e0e0e0;
+      background-color: white;
+    }
+
+    .online-dot {
+      width: 10px;
+      height: 10px;
+      background-color: #4CAF50;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+
+    .chat-messages {
+      padding: 20px;
+      flex-grow: 1;
+      padding-bottom: 100px;
+    }
+
+    .message-container {
+      display: flex;
+      flex-direction: column;
+      padding: 0 10px;
+      margin-bottom: 10px;
+    }
+
+    .user-message-container {
+      align-items: flex-end;
+    }
+
+    .message {
+      padding: 12px;
+      border-radius: 20px;
+      max-width: 80%;
+      word-wrap: break-word;
+    }
+
+    .bot-message {
+      background-color: #e0e0e0;
+      align-self: flex-start;
+    }
+
+    .user-message {
+      background-color: #2196F3;
+      color: white;
+      margin-left: auto;
+    }
+
+    .options-container {
+      background-color: #e0e0e0;
+      border-radius: 20px;
+      padding: 12px;
+      margin-top: 5px;
+      max-width: 80%;
+    }
+
+    .options {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .option-button {
+      background-color: #2196F3;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 20px;
+      cursor: pointer;
+      margin: 5px 0;
+      font-size: 16px;
+    }
+
+    .call-button {
+      background: linear-gradient(to bottom, #33628f, #2b537a);
+      color: white;
+      border: none;
+      padding: 15px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 20px auto;
+      width: 90%;
+      max-width: 400px;
+      text-decoration: none;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      animation: heartbeat 1.5s ease-in-out infinite;
+      position: relative;
+    }
+
+    .call-button::before {
+      content: '';
+      width: 12px;
+      height: 12px;
+      background-color: #4CAF50;
+      border-radius: 50%;
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .call-button-text {
+      font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+      font-weight: bold;
+      margin-bottom: 4px;
+    }
+
+    .call-button-subtext {
+      font-size: clamp(0.8rem, 2vw, 0.9rem);
+      opacity: 0.9;
+    }
+
+    @keyframes heartbeat {
+      0% { transform: scale(1); }
+      14% { transform: scale(1.1); }
+      28% { transform: scale(1); }
+      42% { transform: scale(1.1); }
+      70% { transform: scale(1); }
+    }
+
+    .typing-indicator {
+      display: flex;
+      padding: 12px;
+      border-radius: 20px;
+      background-color: #e0e0e0;
+      align-self: flex-start;
+      margin: 0 10px 10px 10px;
+      max-width: 55px;
+      gap: 2px;
+    }
+
+    .typing-dot {
+      width: 8px;
+      height: 8px;
+      margin: 0 2px;
+      background-color: #666;
+      border-radius: 50%;
+      opacity: 0.8;
+      animation: typing-animation 1s infinite ease-in-out;
+    }
+
+    .typing-dot:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .typing-dot:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+
+    @keyframes typing-animation {
+      0% {
+        transform: translateY(0px);
+      }
+      25% {
+        transform: translateY(-5px);
+      }
+      50% {
+        transform: translateY(0px);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .call-button {
+        width: 95%;
+        padding: 12px 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5XGCMFHV" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <a id="pool-num" href="tel:+17862042371" style="position:absolute;left:-9999px;top:0;" tabindex="-1" aria-hidden="true">(786) 204-2371</a>
+
+  <div id="floating-header">
+    <img src="imagenes/agente.png" alt="Agente" class="agent-image">
+    <div class="call-us-container">
+      <div class="green-dot"></div>
+      <div>Agentes en vivo disponibles</div>
+    </div>
+    <a id="header-call" href="tel:+17862042371" aria-label="Llamar ahora">
+      <div class="phone-icon-container">
+        <svg class="phone-icon" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="24" cy="24" r="24" fill="#28a745"/>
+          <path d="M18.2 14.1c.6-.6 1.6-.5 2.1.2l2.4 3.3c.4.6.4 1.4-.1 1.9l-1.5 1.6c-.3.3-.4.8-.2 1.2 1.1 2.3 3 4.2 5.3 5.3.4.2.9.1 1.2-.2l1.6-1.5c.5-.5 1.3-.5 1.9-.1l3.3 2.4c.7.5.8 1.5.2 2.1l-1.6 1.7c-.8.8-2 1.2-3.1.9-3.7-1-7-3-9.6-5.6-2.6-2.6-4.6-5.9-5.6-9.6-.3-1.1.1-2.3.9-3.1l1.7-1.6z" fill="#ffffff"/>
+        </svg>
+      </div>
+    </a>
+  </div>
+
+  <div class="seccion">
+    <div class="interno">
+
+      <div class="fila-logo">
+        <div class="col">
+          <div class="logo-wrap">
+            <img src="imagenes/logo.png" alt="">
+          </div>
+          <div class="advertencia">
+            <h2 style="font-size:inherit;font-weight:inherit;"><strong>Advertencia: </strong>El periodo de inscripción cierra Hoy a las 11:00pm EST</h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="fila-agente">
+        <div class="col">
+          <div class="chat-bloque">
+            <div class="chat-container">
+              <div class="agente-chat">
+                <img src="imagenes/agente.png" alt="">
+              </div>
+              <div class="chat-header">
+                <div class="online-dot"></div>
+                <span id="agentHeader"></span>
+              </div>
+              <div class="chat-messages" id="chatMessages"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="fila-disclaimer">
+        <div class="col">
+          <div class="disclaimer">
+            <p>This site is not part of Facebook Inc. Also, this site is not endorsed by Facebook in any way. Facebook is a registered trademark of Facebook, Inc. This site and the products and services offered on this site are not sponsored, affiliated with, endorsed or administered in any way by or associated with Facebook. They have also not been reviewed, tested or certified by Facebook</p>
+            <p>The information above has been fact-checked and updated for accuracy.<br>
+            Trademarks utilized on our website belong to their respective owners and no implied or expressed endorsement of our website or services is intended. Through in-depth research and experienced editors we provide feedback about products and services. We are independently owned, and opinions expressed here are our own.<br>
+            THIS IS AN ADVERTORIAL AND NOT AN ACTUAL NEWS ARTICLE, BLOG, OR CONSUMER PROTECTION UPDATE. Our disclaimer is that this site does receive compensation for product reviews and referrals or purchases made through our links. The story depicted here is for demonstration purposes only and everyone's results may vary. We hope you find our online resource informative and helpful. This website and the company that owns it is not responsible for any typographical or photographic errors. If you do not agree to our terms and policies, then please leave this site immediately. All trademarks, logos, and service marks (collectively the "Trademarks") displayed are registered and/or unregistered Trademarks of their respective owners.</p>
+            <p>Copyright © 2024</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div id="notification-container" style="position: fixed; bottom: 10px; left: 50%; transform: translateX(-50%); background: #fff; color: #000; padding: 8px 16px; border-radius: 6px; font-size: 13px; display: none; z-index: 1000; box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); border: 1px solid rgba(0, 0, 0, 0.1); width: 300px; display: flex; align-items: center; height: 80px; line-height: 1.4;">
+    <div id="state-image" style="width: 40px; height: 40px; background: #eee; border-radius: 4px; margin-right: 12px; overflow: hidden;">
+      <img id="state-img" src="" alt="State" style="width: 100%; height: 100%; object-fit: cover;">
+    </div>
+    <div style="flex-grow: 1;">
+      <div id="name-text" style="font-size: 14px; font-weight: bold; margin-bottom: 2px;"></div>
+      <div id="state-text" style="font-size: 13px; font-weight: bold; margin-bottom: 2px;"></div>
+      <div id="quote-text" style="font-size: 12px; color: #444; line-height: 1.2;"></div>
+    </div>
+  </div>
+
+  <script>
+    let pendingDisqualification = null;
+    let currentStep = 0;
+    const chatMessages = document.getElementById('chatMessages');
+
+    const disqualifyURL = '../no-califica.html';
+    const disqualify_confirm_message = false;
+    const agentName = 'Maria';
+    const conversation = [
+      {
+        "text": "Hola 👋",
+        "delay": 1000
+      },
+      {
+        "text": "Soy María del Programa de Ahorro con Seguros IUL con Beneficios en Vida.",
+        "delay": 1000
+      },
+      {
+        "text": "Miles de familias están aplicando a un Seguro IUL 💵 que protege a los tuyos 👨‍👩‍👧 y acumula un ahorro en vida 📈 que puedes usar para tu retiro, tu salud o cualquier emergencia.",
+        "delay": 1000
+      },
+      {
+        "text": "Déjame hacerte unas preguntas rápidas para ver si calificas 😊",
+        "delay": 1000
+      },
+      {
+        "text": "Selecciona tu rango de edad:",
+        "delay": 1000,
+        "options": [
+          "18 a 39",
+          "40 a 54",
+          "55 a 65+"
+        ],
+        "disqualifyAnswers": [
+          "55 a 65+"
+        ]
+      },
+      {
+        "text": "¡Muy bien! 😄",
+        "delay": 1000
+      },
+      {
+        "text": "🏠 ¿Eres dueño de casa?",
+        "delay": 1000,
+        "options": [
+          "Sí",
+          "No"
+        ]
+      },
+      {
+        "text": "Perfecto! 😊 Una última pregunta.",
+        "delay": 1000
+      },
+      {
+        "text": "¿Cómo está tu salud? 💪",
+        "delay": 1000,
+        "options": [
+          "Estoy saludable",
+          "Tengo algunas condiciones"
+        ]
+      },
+      {
+        "text": "🎉 ¡Felicidades! Estás Precalificado para un Seguro IUL con Beneficios en Vida. 🙌",
+        "delay": 1000
+      },
+      {
+        "text": "Hemos reservado un especialista para ayudarte a asegurar tu cobertura y comenzar tu plan de ahorro hoy mismo. 😃",
+        "delay": 1000
+      },
+      {
+        "text": "Haz clic en el botón para llamar 📞 antes de que expire tu precalificación.",
+        "delay": 1000
+      },
+      {
+        "text": "Precalificación reservada por: 1 minuto ⏱️ ¡Llámanos ahora!",
+        "delay": 1000,
+        "callButton": true,
+        "buttonText": "(786) 204-2371",
+        "buttonLink": "tel:+17862042371"
+      }
+    ];
+
+    document.getElementById('agentHeader').textContent = `${agentName} está en línea`;
+
+    function dlPush(ev) { try { (window.dataLayer = window.dataLayer || []).push({ event: ev }); } catch (e) {} }
+    dlPush('pageview');
+    document.addEventListener('click', function (e) {
+      if (e.target && e.target.closest && e.target.closest('a[href^="tel:"]')) dlPush('contact');
+    });
+
+    const headerCall = document.getElementById('header-call');
+    if (headerCall) {
+      headerCall.addEventListener('click', function () {
+        const pool = document.getElementById('pool-num');
+        if (pool && pool.getAttribute('href')) this.href = pool.getAttribute('href');
+      });
+    }
+
+    function addTypingIndicator() {
+      const typingDiv = document.createElement('div');
+      typingDiv.classList.add('typing-indicator');
+      typingDiv.innerHTML = `
+        <div class="typing-dot"></div>
+        <div class="typing-dot"></div>
+        <div class="typing-dot"></div>
+      `;
+      chatMessages.appendChild(typingDiv);
+      scrollToLatestMessage(typingDiv);
+      return typingDiv;
+    }
+
+    function removeTypingIndicator(indicator) {
+      if (indicator && indicator.parentElement) {
+        indicator.remove();
+      }
+    }
+
+    function addMessage(text, isUser = false) {
+      const messageContainer = document.createElement('div');
+      messageContainer.classList.add('message-container');
+      if (isUser) {
+        messageContainer.classList.add('user-message-container');
+      }
+
+      const messageDiv = document.createElement('div');
+      messageDiv.classList.add('message');
+      messageDiv.classList.add(isUser ? 'user-message' : 'bot-message');
+      messageDiv.innerHTML = text;
+
+      messageContainer.appendChild(messageDiv);
+      chatMessages.appendChild(messageContainer);
+      scrollToLatestMessage(messageContainer);
+    }
+
+    function addOptions(options) {
+      const messageContainer = document.createElement('div');
+      messageContainer.classList.add('message-container');
+
+      const optionsContainer = document.createElement('div');
+      optionsContainer.classList.add('options-container');
+
+      const optionsDiv = document.createElement('div');
+      optionsDiv.classList.add('options');
+      options.forEach(option => {
+        const button = document.createElement('button');
+        button.classList.add('option-button');
+        button.textContent = option;
+        button.onclick = () => handleUserInput(option);
+        optionsDiv.appendChild(button);
+      });
+
+      optionsContainer.appendChild(optionsDiv);
+      messageContainer.appendChild(optionsContainer);
+      chatMessages.appendChild(messageContainer);
+      scrollToLatestMessage(messageContainer);
+    }
+
+    function addCallButton() {
+      const link = document.createElement('a');
+      link.classList.add('call-button');
+
+      const poolEl = document.getElementById('pool-num');
+      const poolText = poolEl && poolEl.textContent.trim() ? poolEl.textContent.trim() : null;
+      const poolHref = poolEl && poolEl.getAttribute('href') ? poolEl.getAttribute('href') : null;
+
+      const textSpan = document.createElement('span');
+      textSpan.classList.add('call-button-text');
+      textSpan.textContent = poolText || conversation[currentStep].buttonText || 'CLICK HERE TO CALL';
+
+      const subtextSpan = document.createElement('span');
+      subtextSpan.classList.add('call-button-subtext');
+      subtextSpan.textContent = conversation[currentStep].buttonSubText || '🔒100% Seguro. Llamada 100% Gratis';
+
+      link.appendChild(textSpan);
+      link.appendChild(subtextSpan);
+
+      link.href = poolHref || conversation[currentStep].buttonLink;
+      link.target = "_blank";
+      link.setAttribute('rel', 'noopener noreferrer');
+
+      if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+        link.href = link.href.replace('tel:', 'tel://');
+      }
+
+      chatMessages.appendChild(link);
+      scrollToLatestMessage(link);
+      document.getElementById('chatMessages').scrollIntoView({ behavior: 'smooth', block: 'end' });
+    }
+
+    function handleDisqualificationConfirmation(confirmResponse) {
+      if (confirmResponse === "Yes") {
+        window.location.href = disqualifyURL;
+      } else {
+        currentStep++;
+        processConversation();
+      }
+      pendingDisqualification = null;
+    }
+
+    function handleUserInput(input) {
+      addMessage(input, true);
+      dlPush('view_content');
+      const optionsMessage = chatMessages.lastElementChild.previousElementSibling;
+      if (optionsMessage && optionsMessage.querySelector('.options-container')) {
+        optionsMessage.remove();
+      }
+
+      if (pendingDisqualification) {
+        handleDisqualificationConfirmation(input);
+        return;
+      }
+
+      const currentConversation = conversation[currentStep];
+      if (currentConversation.disqualifyAnswers &&
+          currentConversation.disqualifyAnswers.includes(input)) {
+
+        if (disqualify_confirm_message) {
+          pendingDisqualification = input;
+          const typingIndicator = addTypingIndicator();
+          setTimeout(() => {
+            removeTypingIndicator(typingIndicator);
+            addMessage("Are you sure you selected the right answer?");
+            addOptions(["Yes", "No"]);
+          }, 500);
+        } else {
+          window.location.href = disqualifyURL;
+        }
+        return;
+      }
+
+      currentStep++;
+      processConversation();
+    }
+
+    function scrollToLatestMessage(element) {
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    }
+
+    function processConversation() {
+      if (currentStep < conversation.length) {
+        const step = conversation[currentStep];
+        const typingIndicator = addTypingIndicator();
+
+        setTimeout(() => {
+          removeTypingIndicator(typingIndicator);
+          addMessage(step.text);
+          if (step.options) {
+            addOptions(step.options);
+          } else if (step.callButton) {
+            addCallButton();
+          } else {
+            currentStep++;
+            processConversation();
+          }
+        }, step.delay);
+      }
+    }
+
+    processConversation();
+  </script>
+
+  <script>
+    const names = [
+      "James Carter", "Sophia Martinez", "Liam Johnson", "Olivia Smith",
+      "Ethan Davis", "Emma Brown", "Noah Garcia", "Ava White",
+      "William Martinez", "Isabella Anderson", "Michael Moore", "Charlotte Taylor",
+      "Benjamin Clark", "Amelia Walker", "Elijah Wright", "Mia Thompson",
+      "Alexander Hill", "Harper Scott", "Daniel Adams", "Evelyn Lewis"
+    ];
+
+    const notificationImg = "imagenes/notificacion.svg";
+    const states = [
+      { name: "California", img: notificationImg },
+      { name: "Texas", img: notificationImg },
+      { name: "New York", img: notificationImg },
+      { name: "Florida", img: notificationImg },
+      { name: "Illinois", img: notificationImg },
+      { name: "Pennsylvania", img: notificationImg },
+      { name: "Ohio", img: notificationImg },
+      { name: "Georgia", img: notificationImg },
+      { name: "North Carolina", img: notificationImg },
+      { name: "Michigan", img: notificationImg }
+    ];
+
+    function getRandomQuote() {
+      return `$${Math.floor(Math.random() * (65 - 29 + 1) + 29)} per month`;
+    }
+
+    function showNotification() {
+      const randomName = names[Math.floor(Math.random() * names.length)];
+      const randomState = states[Math.floor(Math.random() * states.length)];
+
+      const nameText = document.getElementById("name-text");
+      const stateText = document.getElementById("state-text");
+      const quoteText = document.getElementById("quote-text");
+      const stateImg = document.getElementById("state-img");
+
+      nameText.textContent = `${randomName}`;
+      stateText.textContent = `From ${randomState.name}`;
+      quoteText.textContent = `${randomName} just got approved for ${getRandomQuote()}!`;
+      stateImg.src = randomState.img;
+
+      const notification = document.getElementById("notification-container");
+      notification.style.display = "flex";
+
+      setTimeout(() => {
+        notification.style.display = "none";
+      }, 4000);
+    }
+
+    function startNotifications() {
+      showNotification();
+      setInterval(() => {
+        showNotification();
+      }, 8000);
+    }
+
+    startNotifications();
+  </script>
+
+</body>
+</html>
