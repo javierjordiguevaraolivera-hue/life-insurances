@@ -2,6 +2,12 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "cleanUrls": false,
   "trailingSlash": false,
+  "rewrites": [
+    { "source": "/seguro-iul/index", "destination": "/seguro-iul/index.html" },
+    { "source": "/seguro-iul/llamada", "destination": "/seguro-iul/llamada.html" },
+    { "source": "/seguro-iul/no-califica", "destination": "/seguro-iul/no-califica.html" },
+    { "source": "/seguro-iul/optin", "destination": "/seguro-iul/optin.html" }
+  ],
   "headers": [
     {
       "source": "/assets/(.*)",
