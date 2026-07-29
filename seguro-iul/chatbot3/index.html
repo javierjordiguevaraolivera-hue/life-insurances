@@ -234,7 +234,7 @@
                 </div>
                 <div id="msg7" class="bg-gray-200 p-3 rounded-lg shadow-xs mt-2 w-fit hidden">
                   <p class="text-md text-gray-800">
-                    ¿Tienes entre 18 y 54 años y estás trabajando actualmente? Toca Sí o No.
+                    ¿Tienes entre 18 y 54 años? Toca Sí o No.
                   </p>
                 </div>
                 <div id="msg8" class="bg-gray-200 p-3 rounded-lg shadow-xs mt-2 w-fit hidden">
@@ -273,20 +273,20 @@
               <div class="ml-3 agent-chat">
                 <div id="msg10" class="bg-gray-200 p-3 rounded-lg shadow-xs mt-2 w-fit hidden">
                   <p class="text-md text-gray-800">
-                    ¿Al menos tienes entre 18 y 54 años?
+                    ¿Estás trabajando actualmente?
                   </p>
                 </div>
                 <div id="msg11" class="bg-gray-200 p-3 rounded-lg shadow-xs mt-2 w-fit hidden">
                   <div class="grid grid-rows-2 grid-cols-1 gap-y-3">
-                    <button class="chat-button text-white font-bold bg-blue-500 rounded-full py-3 px-8 funnel-complete-btn" type="button"
-                      data-form-step="3" data-form-value="No"
-                      style="padding-top: 0.75rem; padding-bottom: 0.75rem; padding-left: 3rem; padding-right: 3rem;">
-                      No
-                    </button>
                     <button class="chat-button text-white font-bold bg-blue-500 rounded-full py-3 px-8" type="button"
                       data-form-step="3" data-form-value="yes"
                       style="padding-top: 0.75rem; padding-bottom: 0.75rem; padding-left: 3rem; padding-right: 3rem;">
                       Sí
+                    </button>
+                    <button class="chat-button text-white font-bold bg-blue-500 rounded-full py-3 px-8 funnel-complete-btn" type="button"
+                      data-form-step="3" data-form-value="No"
+                      style="padding-top: 0.75rem; padding-bottom: 0.75rem; padding-left: 3rem; padding-right: 3rem;">
+                      No
                     </button>
                   </div>
                 </div>
@@ -464,37 +464,9 @@
           $("#userBlock2").removeClass("hidden");
 
           if (buttonValue == "No") {
-            $("#agentBlock3 .agent-chat").prepend(typingEffect());
+            $("#agentBlock4 .agent-chat").prepend(typingEffect());
             $("#msg9no").removeClass("hidden");
             scrollToBottom();
-            setTimeout(function () {
-              $("#agentBlock3").removeClass("hidden");
-              scrollToBottom();
-              setTimeout(function () {
-                $(".temp-typing").remove();
-                $("#msg10").removeClass("hidden").after(typingEffect());
-                scrollToBottom();
-                setTimeout(function () {
-                  $(".temp-typing").remove();
-                  $("#msg11").removeClass("hidden");
-                  scrollToBottom();
-                }, 0);
-              }, 1750);
-            }, 50);
-          } else {
-            $("#msg9yes").removeClass("hidden");
-            scrollToBottom();
-            showCongrats();
-          }
-        }
-
-        if (currentStep == 3) {
-          $("#msg11").addClass("hidden");
-          $("#userBlock3").removeClass("hidden");
-
-          if (buttonValue == "No") {
-            $("#agentBlock4 .agent-chat").prepend(typingEffect());
-            $("#msg12no").removeClass("hidden");
             setTimeout(function () {
               $("#agentBlock4").removeClass("hidden");
               scrollToBottom();
@@ -514,11 +486,37 @@
               }, 1250);
             }, 1250);
           } else {
-            $("#msg12yes").removeClass("hidden");
+            $("#agentBlock3 .agent-chat").prepend(typingEffect());
+            $("#msg9yes").removeClass("hidden");
             scrollToBottom();
-            showCongrats();
+            setTimeout(function () {
+              $("#agentBlock3").removeClass("hidden");
+              scrollToBottom();
+              setTimeout(function () {
+                $(".temp-typing").remove();
+                $("#msg10").removeClass("hidden").after(typingEffect());
+                scrollToBottom();
+                setTimeout(function () {
+                  $(".temp-typing").remove();
+                  $("#msg11").removeClass("hidden");
+                  scrollToBottom();
+                }, 0);
+              }, 1750);
+            }, 50);
+          }
+        }
+
+        if (currentStep == 3) {
+          $("#msg11").addClass("hidden");
+          $("#userBlock3").removeClass("hidden");
+
+          if (buttonValue == "No") {
+            $("#msg12no").removeClass("hidden");
+          } else {
+            $("#msg12yes").removeClass("hidden");
           }
           scrollToBottom();
+          showCongrats();
         }
       });
     });
