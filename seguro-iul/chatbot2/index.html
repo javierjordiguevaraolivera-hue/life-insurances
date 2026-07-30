@@ -245,9 +245,9 @@
 
     #notification-container {
       position: fixed;
-      top: 10px;
-      left: 50%;
-      transform: translate(-50%, -140%);
+      top: 64px;
+      right: 12px;
+      transform: translateX(calc(100% + 24px));
       width: min(360px, calc(100% - 24px));
       background: rgba(255, 255, 255, .97);
       -webkit-backdrop-filter: blur(10px);
@@ -266,7 +266,7 @@
       pointer-events: none;
       transition: transform .5s cubic-bezier(.3, .9, .35, 1.02);
     }
-    #notification-container.show { transform: translate(-50%, 0); }
+    #notification-container.show { transform: translateX(0); }
     #state-image {
       width: 42px; height: 42px; flex: 0 0 42px;
       border-radius: 50%;
@@ -373,7 +373,7 @@
         "delay": 1000
       },
       {
-        "text": "¿Has recibido algún beneficio del IUL en los últimos 2 años?",
+        "text": "En los últimos 2 años, ¿ha recibido algún beneficio IUL?",
         "delay": 1000,
         "options": [
           "Sí",
