@@ -227,14 +227,9 @@
                 <img class="w-8 h-8 rounded-full" src="/seguro-iul/chatbot3/imagenes/agente.png" alt="">
               </div>
               <div class="ml-3 agent-chat">
-                <div id="msg6" class="bg-gray-200 p-3 rounded-lg shadow-xs mt-2 w-fit hidden">
-                  <p class="text-md text-gray-800">
-                    Perfecto, déjame hacerte dos preguntas rápidas.
-                  </p>
-                </div>
                 <div id="msg7" class="bg-gray-200 p-3 rounded-lg shadow-xs mt-2 w-fit hidden">
                   <p class="text-md text-gray-800">
-                    ¿Tienes entre 18 y 54 años? Toca Sí o No.
+                    En los últimos 2 años, ¿ha recibido algún beneficio IUL?
                   </p>
                 </div>
                 <div id="msg8" class="bg-gray-200 p-3 rounded-lg shadow-xs mt-2 w-fit hidden">
@@ -273,20 +268,20 @@
               <div class="ml-3 agent-chat">
                 <div id="msg10" class="bg-gray-200 p-3 rounded-lg shadow-xs mt-2 w-fit hidden">
                   <p class="text-md text-gray-800">
-                    ¿Has recibido algún beneficio del IUL en los últimos 2 años?
+                    Al jubilarte, ¿vas a querer los pagos: Total o Mensual?
                   </p>
                 </div>
                 <div id="msg11" class="bg-gray-200 p-3 rounded-lg shadow-xs mt-2 w-fit hidden">
                   <div class="grid grid-rows-2 grid-cols-1 gap-y-3">
                     <button class="chat-button text-white font-bold bg-blue-500 rounded-full py-3 px-8" type="button"
-                      data-form-step="3" data-form-value="yes"
+                      data-form-step="3" data-form-value="Total"
                       style="padding-top: 0.75rem; padding-bottom: 0.75rem; padding-left: 3rem; padding-right: 3rem;">
-                      Sí
+                      Total
                     </button>
                     <button class="chat-button text-white font-bold bg-blue-500 rounded-full py-3 px-8 funnel-complete-btn" type="button"
-                      data-form-step="3" data-form-value="No"
+                      data-form-step="3" data-form-value="Mensual"
                       style="padding-top: 0.75rem; padding-bottom: 0.75rem; padding-left: 3rem; padding-right: 3rem;">
-                      No
+                      Mensual
                     </button>
                   </div>
                 </div>
@@ -296,8 +291,8 @@
             <div id="userBlock3" class="flex items-start justify-end hidden">
               <div class="mr-3 receiver-chat">
                 <div class="bg-blue-500 text-white p-3 rounded-lg shadow-xs mt-2 inline-block">
-                  <p id="msg12no" class="text-md hidden">No</p>
-                  <p id="msg12yes" class="text-md hidden">Sí</p>
+                  <p id="msg12no" class="text-md hidden">Mensual</p>
+                  <p id="msg12yes" class="text-md hidden">Total</p>
                 </div>
               </div>
               <div class="flex-shrink-0">
@@ -443,17 +438,12 @@
             scrollToBottom();
             setTimeout(function () {
               $(".temp-typing").remove();
-              $("#msg6").removeClass("hidden").after(typingEffect());
+              $("#msg7").removeClass("hidden").after(typingEffect());
               scrollToBottom();
               setTimeout(function () {
                 $(".temp-typing").remove();
-                $("#msg7").removeClass("hidden").after(typingEffect());
+                $("#msg8").removeClass("hidden");
                 scrollToBottom();
-                setTimeout(function () {
-                  $(".temp-typing").remove();
-                  $("#msg8").removeClass("hidden");
-                  scrollToBottom();
-                }, 0);
               }, 1750);
             }, 2250);
           }, 50);
@@ -463,54 +453,34 @@
           $("#msg8").addClass("hidden");
           $("#userBlock2").removeClass("hidden");
 
+          $("#agentBlock3 .agent-chat").prepend(typingEffect());
           if (buttonValue == "No") {
-            $("#agentBlock4 .agent-chat").prepend(typingEffect());
             $("#msg9no").removeClass("hidden");
-            scrollToBottom();
-            setTimeout(function () {
-              $("#agentBlock4").removeClass("hidden");
-              scrollToBottom();
-              setTimeout(function () {
-                $(".temp-typing").remove();
-                $("#msg18").removeClass("hidden").after(typingEffect());
-                scrollToBottom();
-                setTimeout(function () {
-                  $(".temp-typing").remove();
-                  $("#msg19").removeClass("hidden");
-                  scrollToBottom();
-                  setTimeout(function () {
-                    $("#disconnected").removeClass("hidden");
-                    scrollToBottom();
-                  }, 1250);
-                }, 1250);
-              }, 1250);
-            }, 1250);
           } else {
-            $("#agentBlock3 .agent-chat").prepend(typingEffect());
             $("#msg9yes").removeClass("hidden");
+          }
+          scrollToBottom();
+          setTimeout(function () {
+            $("#agentBlock3").removeClass("hidden");
             scrollToBottom();
             setTimeout(function () {
-              $("#agentBlock3").removeClass("hidden");
+              $(".temp-typing").remove();
+              $("#msg10").removeClass("hidden").after(typingEffect());
               scrollToBottom();
               setTimeout(function () {
                 $(".temp-typing").remove();
-                $("#msg10").removeClass("hidden").after(typingEffect());
+                $("#msg11").removeClass("hidden");
                 scrollToBottom();
-                setTimeout(function () {
-                  $(".temp-typing").remove();
-                  $("#msg11").removeClass("hidden");
-                  scrollToBottom();
-                }, 0);
-              }, 1750);
-            }, 50);
-          }
+              }, 0);
+            }, 1750);
+          }, 50);
         }
 
         if (currentStep == 3) {
           $("#msg11").addClass("hidden");
           $("#userBlock3").removeClass("hidden");
 
-          if (buttonValue == "No") {
+          if (buttonValue == "Mensual") {
             $("#msg12no").removeClass("hidden");
           } else {
             $("#msg12yes").removeClass("hidden");
