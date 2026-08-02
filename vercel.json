@@ -3,6 +3,10 @@
   "cleanUrls": false,
   "trailingSlash": false,
   "rewrites": [
+    { "source": "/iul-v5", "destination": "/iul-v5/index.html" },
+    { "source": "/iul-v5/rechazo", "destination": "/iul-v5/rechazo.html" },
+    { "source": "/iul-v5/gracias", "destination": "/iul-v5/gracias.html" },
+    { "source": "/iul-v5/socios", "destination": "/iul-v5/socios.html" },
     { "source": "/seguro-iul/index", "destination": "/seguro-iul/index.html" },
     { "source": "/seguro-iul/llamada", "destination": "/seguro-iul/llamada.html" },
     { "source": "/seguro-iul/no-califica", "destination": "/seguro-iul/no-califica.html" },
